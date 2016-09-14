@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+
+      // Load Charts and the corechart package.
+      google.charts.load('current', {'packages': ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that draws the pie chart for Sarah's pizza.
+      function drawChart() {
+
+        // Create the data table for Sarah's pizza.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'year');
+        data.addColumn('number', 'Afghanistan');
+        data.addColumn('number', 'Africa');
+        data.addColumn('number', 'Albania');
+        data.addRows([
+          ['2010-2015', 4.9985, 4.676057, 1.787],
+          ['2015-2020', 4.0365, 4.39616, 1.7706],
+          ['2020-2025', 3.3198, 4.133034, 1.7558],
+          ['2025-2030', 2.8497, 3.884503, 1.7456],
+          ['2030-2035', 2.5287, 3.651526, 1.7403],
+          ['2035-2040', 2.2921, 3.439574, 1.7396],
+          ['2040-2045', 2.1091, 3.250862, 1.7423],
+          ['2045-2050', 1.9706, 3.083002, 1.7474],
+          ['2050-2055', 1.8642, 2.930506, 1.7541],
+          ['2055-2060', 1.7872, 2.791013, 1.7632],
+          ['2060-2065', 1.736, 2.664251, 1.7732],
+          ['2065-2070', 1.7078, 2.551451, 1.7838],
+          ['2070-2075', 1.6995, 2.45318, 1.7945],
+          ['2075-2080', 1.7018, 2.366077, 1.804],
+          ['2080-2085', 1.7101, 2.28957, 1.814],
+          ['2090-2095', 1.739, 2.162719, 1.8314],
+          ['2085-2090', 1.7251, 2.221613, 1.8233],
+          ['2095-2100', 1.7544, 2.111227, 1.839]  
+        ]);
+
+        // Set options for Sarah's pie chart.
+        var line_options = {
+                      'title':'Fertility Change From 2010 to 2100',
+                      'curveType': 'function',
+                       'width':500,
+                       'height':400
+                     };
+
+        // Instantiate and draw the chart for Sarah's pizza.
+        var line_chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        line_chart.draw(data, line_options);
+
+      // Callback that draws the pie chart for Anthony's pizza.
+
+        // Set options for Anthony's pie chart.
+        var bar_options = {title:'Fertility Change From 2010 to 2100',
+                          isStacked: true,
+                          width:500,
+                          height:400};
+
+        // Instantiate and draw the chart for Anthony's pizza.
+        var bar_chart = new google.visualization.ColumnChart(document.getElementById('bar_chart'));
+        bar_chart.draw(data, bar_options);
+      }
+    </script>
+  </head>
+  <body>
+  <style>
+
+    body{
+       background-color: rgba(54, 25, 45, 0.1);
+    }
+  </style>
+
+    <header>
+      <nav class="navbar navbar-Primary">
+        <div class="container navbar-inverse">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <form class="navbar-form navbar-right" role="dropdown">
+                
+                <dropdown type="submit" class="btn btn-primary">Fertility</dropdown>
+              </form>
+            <a class="navbar-brand" href="#">Data Visulization</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Country <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+            
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+    
+    <div style="display: block; text-align:center; ">
+      <h2> <strong><p class='custom'>Fertility Change Within 90 Years From 2010-2100</p></strong> </h2>
+    </div>  
+   
+      
+        <!--Table and divs that hold the pie charts-->
+    <div>
+      <table class="columns" align="center">
+        <tr>
+          <td><div id="curve_chart" style="border: 1px solid #ccc"></div></td>
+          <td><div id="bar_chart" style="border: 1px solid #ccc"></div></td>
+        </tr>
+      </table>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
